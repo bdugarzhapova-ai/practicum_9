@@ -1,0 +1,37 @@
+def days_from_start(date):
+    d, m = map(int, date.split('.'))
+    month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    total = 0
+    for i in range(m - 1):
+        total += month_days[i]
+    total += d
+    return total
+
+
+f = open('input_10.txt', 'r', encoding='utf-8')
+lines = f.readlines()
+f.close()
+
+current = lines[0].strip()
+current_days = days_from_start(current)
+
+n = int(lines[1].strip())
+
+result = []
+
+for i in range(n):
+    line = lines[i + 2].strip()
+    parts = line.split()
+    cell = parts[0]
+    date = parts[1]
+
+    date_days = days_from_start(date)
+
+    if current_days - date_days > 3:
+        result.append(cell)
+
+f = open('output_10.txt', 'w', encoding='utf-8')
+for cell in result:
+    f.write(cell + '\n')
+f.close()
