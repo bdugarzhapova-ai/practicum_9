@@ -1,0 +1,24 @@
+days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+with open('input_8.txt', 'r', encoding='utf-8') as f:
+    steps = [int(line.strip()) for line in f.readlines()]
+
+if len(steps) != 365:
+    print("Ошибка: в файле должно быть 365 строк (данные за год)")
+    exit()
+
+averages = []
+start = 0
+
+for days in days_in_month:
+    month_steps = steps[start:start + days]
+
+    avg = sum(month_steps) / days
+    averages.append(str(round(avg, 2)))
+
+    start += days
+
+with open('output_8.txt', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(averages))
+
+print("Готово")
