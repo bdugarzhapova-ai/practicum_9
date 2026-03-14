@@ -1,0 +1,13 @@
+with open('input_4.txt', 'r', encoding='utf-8') as input_file:
+    lines = input_file.readlines()
+
+long_lines = []
+for line in lines:
+    line = line.rstrip('\n')
+    if len(line) > 20:
+        long_lines.append(line + '\n')
+
+with open('output_4.txt', 'w', encoding='utf-8') as output_file:
+    output_file.writelines(long_lines)
+
+print("Готово")
