@@ -1,0 +1,20 @@
+try:
+    with open('input_6.txt') as f:
+        lines = f.readlines()
+
+    try:
+        n = int(lines[0])
+        if len(lines) - 1 == n:
+            result = "YES"
+        else:
+            result = "NO"
+    except:
+        result = "ERROR"
+
+except:
+    result = "ERROR"
+
+with open('output_6.txt', 'w') as f:
+    f.write(result)
+
+print("Готово")
