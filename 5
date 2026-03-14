@@ -1,0 +1,24 @@
+with open('input_5.txt', 'r') as f:
+    lines = [line.strip() for line in f.readlines()]
+
+results = []
+
+for i in range(0, len(lines), 3):
+    try:
+        a = int(lines[i])
+        b = int(lines[i + 1])
+        c = int(lines[i + 2])
+
+        try:
+            res = a / b + c
+            results.append(str(res))
+        except ZeroDivisionError:
+            results.append("division by 0")
+
+    except (ValueError, IndexError):
+        results.append("data error")
+
+with open('output_5.txt', 'w') as f:
+    for r in results:
+        f.write(r + '\n')
+print("Готово")
