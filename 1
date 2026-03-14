@@ -1,0 +1,9 @@
+with open('input_1.txt', 'r', encoding='utf-8') as f1:
+    f1 = f1.read()
+
+text_upper = f1.upper()
+
+with open('output_1.txt', 'w', encoding='utf-8') as f2:
+    f2.write(text_upper)
+
+print("Готово")
