@@ -1,0 +1,14 @@
+with open("input_3.txt", "r", encoding="utf-8") as f:
+    text = f.readlines()
+    first_letters = []
+    
+    for line in text:
+        if line[0] != "":
+            first_letters.append(line[0])
+
+result = ''.join(first_letters)
+
+with open('output_3.txt', 'w', encoding='utf-8') as output_text:
+    output_text.write(result)
+
+print("Готово")
